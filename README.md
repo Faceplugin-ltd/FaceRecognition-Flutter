@@ -42,23 +42,19 @@ Explore `face recognition SDK` `React Native Plugin` from [Faceplugin](https://f
 
 ## Install License
   
-- The code below shows how to use the license: https://github.com/Faceplugin-ltd/FaceRecognition-React-Native/blob/main/example/src/MainPage.tsx#L23-L43
+- The code below shows how to use the license: https://github.com/Faceplugin-ltd/FaceRecognition-Flutter/blob/main/lib/main.dart#L81-L111
 
 Please contact us to get the license.
 
 ## How To Run
 ### 1. Flutter Setup
-  Make sure you have `Flutter` installed. </br>
-  We have tested the project with `Flutter` version `3.24.5`.</br> 
-  If you don't have `Flutter` installed, please follow the instructions provided in the official `Flutter` documentation [here](https://docs.flutter.dev/get-started/install).</br>
+  Please refer to this  the official `Flutter` [documentation](https://docs.flutter.dev/get-started/install).</br>
 ### 2. How to Run the App
   ```bash
   flutter pub upgrade
   flutter run
   ```  
   If you are going to run the `iOS` app, please refer to this [documentation](https://docs.flutter.dev/deployment/ios) for detailed instructions.</br>
-### 3. How to build the APK for Release
-Configure ProGuard as described in this file:https://github.com/Faceplugin-ltd/FaceRecognition-React-Native/blob/main/example/src/MainPage.tsx#L23-L43 
 
 ## List of our Products
 
