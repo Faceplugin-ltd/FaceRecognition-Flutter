@@ -82,11 +82,6 @@ class MyHomePageState extends State<MyHomePage> {
       if (Platform.isAndroid) {
         await _facesdkPlugin
             .setActivation(
-                // "BFYHjTqoHgVQ6oBk3sASxkkRLswr3iaA+4lKxh4lWuMlhTnaKGNHnOQtYLHoI7VtqbztmUcDycYA"
-                // "Wt4zIcr4lhw6RhDYWRsxDvwAvBmy/wQ+K/5Om1ELQCc1muGscUM8Bsw+i0hyR8qRvVFJjsfXWwQk"
-                // "DmnSdHf2ChPe01/fHZHkfIdBYoCOt7WAK2lZNFVnI1be8gizyVNpuCYW+M3AYx5CHgiDljTj1mYA"
-                // "1sNbk5JZ2Hop0ySJe48ljBRDbjfnExzGzHiBwvOO8aqvNMm4W58lhZsOFwYotsQjonr5kDz+fEdv"
-                // "5LeEDQwj3VSQn2aoTVGYiJp8OtoamWYTsyis5Q=="
                 "MsWdfxxrgrmsqd/vmtzbXd53Y2FwTJ4NqA7zYu+b1TPOA1fPylOhUC6cXICq66M1Iyr9TMWkKWUX"
                 "bdkkB/kuq7N2gpufGvW0vtuqqFiJTJ/o1FChJ/essH09XUSa4OXa/DE6SLD2xHJTaWkWYvxjJXAk"
                 "4TzA8moO9fU82HHMLzC2hN6LAgT0ktMdeGY9fFXQYc83blh9YA/cXv6v1lcgc17dHT8wNkPd56Yo"
@@ -101,12 +96,6 @@ class MyHomePageState extends State<MyHomePage> {
                 "HZG38yxZmzLF9U93VV0U77qDuDwH+BSAWTI/7n+9NDgCEq16UVVBI4orMhwqI/E/Qxu782wfMspP"
                 "PGudIU59bpSNia8p/e6korb6a9ORSLUX5NlhZw5mU/uhJp6725kFrpnxFHvp9XjWpJpB2WLf5dqW"
                 "AilE5RLVpljUesj6oS+zB2RRIpEyHTh1VNPcWA==")
-            // .setActivation(
-            //     "nWsdDhTp12Ay5yAm4cHGqx2rfEv0U+Wyq/tDPopH2yz6RqyKmRU+eovPeDcAp3T3IJJYm2LbPSEz"
-            //     "+e+YlQ4hz+1n8BNlh2gHo+UTVll40OEWkZ0VyxkhszsKN+3UIdNXGaQ6QL0lQunTwfamWuDNx7Ss"
-            //     "efK/3IojqJAF0Bv7spdll3sfhE1IO/m7OyDcrbl5hkT9pFhFA/iCGARcCuCLk4A6r3mLkK57be4r"
-            //     "T52DKtyutnu0PDTzPeaOVZRJdF0eifYXNvhE41CLGiAWwfjqOQOHfKdunXMDqF17s+LFLWwkeNAD"
-            //     "PKMT+F/kRCjnTcC8WPX3bgNzyUBGsFw9fcneKA==")
             .then((value) => facepluginState = value ?? -1);
       }
 
