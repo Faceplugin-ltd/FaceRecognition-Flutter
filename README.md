@@ -42,8 +42,7 @@ Explore `face recognition SDK` `React Native Plugin` from [Faceplugin](https://f
 
 ## Install License
   
-- The code below shows how to use the license: https://github.com/Faceplugin-ltd/FaceRecognition-Flutter/blob/main/lib/main.dart#L81-L111
-
+- The code below shows how to use the license: https://github.com/Faceplugin-ltd/FaceRecognition-Flutter/blob/e29ae3f1f9808e2e9f6ba6bf36da6d3c06d473b1/lib/main.dart#L81-L100
 Please contact us to get the license.
 
 ## How To Run
