@@ -1,0 +1,79 @@
+# Face Recognition Flutter example — CocoaPods host
+# After placing facerecognitionsdk.framework, run: cd example/ios && pod install
+# (or dart run tool/bootstrap.dart from the plugin root)
+
+require 'fileutils'
+
+platform :ios, '15.0'
+
+ENV['COCOAPODS_DISABLE_STATS'] = 'true'
+
+project 'Runner', {
+  'Debug' => :debug,
+  'Profile' => :release,
+  'Release' => :release,
+}
+
+def flutter_root
+  generated_xcode_build_settings_path = File.expand_path(File.join('..', 'Flutter', 'Generated.xcconfig'), __FILE__)
+  unless File.exist?(generated_xcode_build_settings_path)
+    raise "#{generated_xcode_build_settings_path} must exist. Run flutter pub get first."
+  end
+  File.foreach(generated_xcode_build_settings_path) do |line|
+    matches = line.match(/FLUTTER_ROOT\=(.*)/)
+    return matches[1].strip if matches
+  end
+  raise "FLUTTER_ROOT not found"
+end
+
+require File.expand_path(File.join('packages', 'flutter_tools', 'bin', 'podhelper'), flutter_root)
+
+flutter_ios_podfile_setup
+
+# Build .xcframework wrappers from Drive .framework drops so CocoaPods links them
+# into the face_recognition_sdk pod target (plain .framework often does not).
+plugin_ios = File.expand_path('../../../ios', __dir__)
+%w[facerecognitionsdk FaceRecognitionEngine onnxruntime].each do |base|
+  fw = File.join(plugin_ios, 'Frameworks', "#{base}.framework")
+  xc = File.join(plugin_ios, 'Frameworks', "#{base}.xcframework")
+  next unless File.directory?(fw)
+
+  binary = File.join(fw, base)
+  binary = File.join(fw, "lib#{base}.dylib") unless File.exist?(binary)
+  plist = File.join(xc, 'Info.plist')
+  needs_build = !File.directory?(xc) ||
+                (File.exist?(binary) && File.exist?(plist) && File.mtime(binary) > File.mtime(plist)) ||
+                (File.directory?(xc) && !File.exist?(plist))
+  next unless needs_build
+
+  FileUtils.rm_rf(xc) if File.exist?(xc)
+  puts "Creating #{xc}"
+  ok = system('xcodebuild', '-create-xcframework', '-framework', fw, '-output', xc)
+  puts "warning: xcodebuild -create-xcframework failed for #{base}" unless ok
+end
+
+target 'Runner' do
+  use_frameworks!
+  use_modular_headers!
+
+  flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
+end
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    flutter_additional_ios_build_settings(target)
+    target.build_configurations.each do |config|
+      # permission_handler: macros default to 0; without these, Permission.camera
+      # never prompts and always reports denied.
+      defs = config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] || ['$(inherited)']
+      defs = [defs] unless defs.is_a?(Array)
+      %w[
+        PERMISSION_CAMERA=1
+        PERMISSION_PHOTOS=1
+      ].each do |flag|
+        defs << flag unless defs.any? { |d| d.to_s.include?(flag.split('=').first) }
+      end
+      config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] = defs
+    end
+  end
+end

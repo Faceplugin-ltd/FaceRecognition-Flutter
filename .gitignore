@@ -1,0 +1,127 @@
+# FaceRecognition-Flutter-App — Flutter plugin + example
+# (plugin root = publishable package; example/ = demo app)
+
+# ---------------------------------------------------------------------------
+# OS / editors
+# ---------------------------------------------------------------------------
+.DS_Store
+*.swp
+*.swo
+*~
+.atom/
+.build/
+.buildlog/
+.history
+.svn/
+.swiftpm/
+migrate_working_dir/
+
+*.iml
+*.ipr
+*.iws
+.idea/
+.vscode/
+*.classpath
+*.project
+*.settings/
+
+# ---------------------------------------------------------------------------
+# Dart / Flutter (plugin + example)
+# ---------------------------------------------------------------------------
+**/.dart_tool/
+**/.packages
+**/.pub-cache/
+**/.pub/
+**/doc/api/
+**/.flutter-plugins
+**/.flutter-plugins-dependencies
+**/build/
+**/coverage/
+.widget_preview/
+
+# Plugin packages should not commit pubspec.lock (Dart library convention).
+# Keep example/pubspec.lock for reproducible demo builds.
+/pubspec.lock
+
+# ---------------------------------------------------------------------------
+# Android
+# ---------------------------------------------------------------------------
+**/local.properties
+**/.gradle/
+**/captures/
+**/.cxx/
+**/*.apk
+**/*.aab
+**/gradle-wrapper.jar
+**/GeneratedPluginRegistrant.java
+**/GeneratedPluginRegistrant.kt
+
+# Signing — never commit secrets
+**/key.properties
+**/*.keystore
+**/*.jks
+!**/debug.keystore
+
+# ---------------------------------------------------------------------------
+# iOS / Xcode / CocoaPods
+# ---------------------------------------------------------------------------
+**/Pods/
+**/DerivedData/
+**/*.xcuserstate
+**/xcuserdata/
+**/*.mode1v3
+**/*.mode2v3
+**/*.pbxuser
+**/*.perspectivev3
+!**/*.default.mode1v3
+!**/*.default.mode2v3
+!**/*.default.pbxuser
+!**/*.default.perspectivev3
+**/*sync/
+.sconsign.dblite
+
+example/ios/.symlinks/
+example/ios/Flutter/Flutter.podspec
+example/ios/Flutter/Generated.xcconfig
+example/ios/Flutter/flutter_export_environment.sh
+example/ios/Flutter/ephemeral/
+example/ios/Flutter/App.framework
+example/ios/Flutter/Flutter.framework
+example/ios/Flutter/app.flx
+example/ios/Flutter/app.zip
+example/ios/Flutter/flutter_assets/
+example/ios/Flutter/.last_build_id
+example/ios/ServiceDefinitions.json
+example/ios/Runner/GeneratedPluginRegistrant.*
+
+# ---------------------------------------------------------------------------
+# FacePlugin native runtimes (download from Drive — not on GitHub)
+# Keep README placeholders and header stubs if present.
+# ---------------------------------------------------------------------------
+*.aar
+example/android/libfacesdk/**/*.aar
+example/android/libfacesdk/**/*.so
+android/libs/**/*.aar
+ios/Frameworks/**/*.framework/**
+ios/Frameworks/**/*.xcframework/**
+!ios/Frameworks/README.md
+!ios/Frameworks/facerecognitionsdk.framework/Headers/
+!ios/Frameworks/facerecognitionsdk.framework/Modules/
+!ios/Frameworks/facerecognitionsdk.framework/Info.plist
+# SwiftPM / package Frameworks copy (synced when present)
+ios/face_recognition_sdk/Frameworks/**/*.framework/**
+ios/face_recognition_sdk/Frameworks/**/*.xcframework/**
+
+# ---------------------------------------------------------------------------
+# Misc generated / local
+# ---------------------------------------------------------------------------
+*.log
+*.class
+*.pyc
+app.*.symbols
+app.*.map.json
+example/android/app/debug/
+example/android/app/profile/
+example/android/app/release/
+**/kotlin/sessions/
+**/.kotlin/

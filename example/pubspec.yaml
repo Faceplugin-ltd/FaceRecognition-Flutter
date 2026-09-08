@@ -1,0 +1,40 @@
+name: face_recognition_sdk_example
+description: FacePlugin Face Recognition Flutter demo
+publish_to: "none"
+version: 0.1.0+1
+
+environment:
+  sdk: ">=3.3.0 <4.0.0"
+  flutter: ">=3.44.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  face_recognition_sdk:
+    path: ../
+  camera: ^0.12.0
+  image_picker: ^1.1.2
+  permission_handler: ^11.3.1
+  provider: ^6.1.2
+  go_router: ^14.2.0
+  path_provider: ^2.1.4
+  shared_preferences: ^2.3.2
+  path: ^1.9.0
+  url_launcher: ^6.3.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  # Repo folder FaceRecognition-Flutter-App ≠ package face_recognition_sdk.
+  # Flutter SPM uses the real path basename for local path plugins, which
+  # breaks resolution (flutter/flutter#186881). CocoaPods remains fully
+  # supported.
+  config:
+    enable-swift-package-manager: false
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/icons/
