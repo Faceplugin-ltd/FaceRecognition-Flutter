@@ -15,9 +15,9 @@ class FacePluginLogo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final image = Image.asset(
-      'assets/images/ic_faceplugin.png',
-      width: size,
-      height: size,
+      'assets/images/fp_logo.png',
+      width: size * 2.2,
+      height: size * 0.44,
       fit: BoxFit.contain,
       semanticLabel: 'FacePlugin',
     );
